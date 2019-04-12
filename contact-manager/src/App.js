@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Contact from './components/Contact';
+import Header from './components/Header';
+
 import './App.css';
 
 class App extends Component { // (class based component), every component made wille extend this one
@@ -20,16 +23,21 @@ class App extends Component { // (class based component), every component made w
 
     return (
       <div className="App">
-       <h1>The App Component</h1>
-       {showHello ? <h4>Hello {name.toUpperCase()}</h4> : null}
-       {math}
-       <label htmlFor="name">Name</label>
+        <Header branding="Contact Manager"/>
+        <Contact name="Big Boss" email="ceo@mail.com" phone="555-555-555"/>
+        <Contact name="Mr. Burns" email="bossman@springfield.com" phone="555-666-555"/>
       </div>
     );
   }
 }
 
 export default App;
+
+// Below was used in initial tutorial...
+// <h1>The App Component</h1>
+// {showHello ? <h4>Hello {name.toUpperCase()}</h4> : null}
+// {math}
+// <label htmlFor="name">Name</label>
 
 
 /*
