@@ -73,3 +73,6 @@ Component files should start with a capital letter
 
 ## Props
 Short for properties, can be passed into components, just like attributes
+
+## Style
+Added within components/react with a double curly brace '{{}}', added to a style tag. Or can be declared externally with a const then added into the curly brace.

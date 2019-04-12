@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import Contacts from './components/Contacts';
 import Contact from './components/Contact';
 import Header from './components/Header';
 
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 
 class App extends Component { // (class based component), every component made wille extend this one
@@ -24,14 +26,21 @@ class App extends Component { // (class based component), every component made w
     return (
       <div className="App">
         <Header branding="Contact Manager"/>
-        <Contact name="Big Boss" email="ceo@mail.com" phone="555-555-555"/>
-        <Contact name="Mr. Burns" email="bossman@springfield.com" phone="555-666-555"/>
+        <div className="container">
+          <Contacts />
+        </div>
       </div>
     );
   }
 }
 
 export default App;
+
+// <Header branding="Contact Manager"/>
+// <div className="container">
+//   <Contact name="Big Boss" email="ceo@mail.com" phone="555-555-555"/>
+//   <Contact name="Mr. Burns" email="bossman@springfield.com" phone="555-666-555"/>
+// </div>
 
 // Below was used in initial tutorial...
 // <h1>The App Component</h1>
