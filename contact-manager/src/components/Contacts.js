@@ -42,17 +42,31 @@ class Contacts extends Component {
 
   state = {}
 
+  deleteContact = (id) => {
+    // console.log(id);
+    const { contacts } = this.state;
+    
+    // Note: state not directly muteable 
+    const newContacts = contacts.filter(contact => contact.id !== id); 
+
+    this.setState({
+      contacts: newContacts
+    });
+  };
+
   render() {
     const { contacts } = this.state;
 
+    // If we want a psudo element instead of adding a new div to the dom you can use 'React.element'
+
     return (
-      <div>
+      <React.Fragment>
         {contacts.map(contact => (
           <Contact 
             key={contact.id}
-            contact={contact} />
+            contact={contact} deleteClickHandler={this.deleteContact.bind(this, contact.id)}/>
         ))}
-      </div>
+      </React.Fragment>
       );
     
     // return <div>{contacts.map(contact => <h1>{contact.name}</h1>)}</div>;

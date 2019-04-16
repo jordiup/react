@@ -13,3 +13,7 @@
 
 # React is a *library*
   React should be classified as a library as opposed because it lacks what most frameworks include; a router. Angular and ember have this at their core. Whereas React gets this by using React Router, installed by NPM.
+
+# State
+  - State is immutable, you can't directly mutate it. 
+  - State handling can get very messy when their are multiple levels, that is where Redux, Context API and other mangers comine in to help manage state.

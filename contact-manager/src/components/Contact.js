@@ -3,23 +3,33 @@ import PropTypes from 'prop-types';
 
 class Contact extends Component {
 
-  state = {};
+  state = {
+    showContactInfo: false
+  };
 
-  // Function that is called from the h4 button note that an arrow function must be used to maintain the state
-  onShowClick = (e) => {
-    console.log(e.target);
-  }
+  onDeleteClick = () => {
+    this.props.deleteClickHandler();
+  };
+
+  // Function that is called from the h4 button note that an arrow function must be used to maintain the state (now used as an arrow function)
+  // onShowClick = (e) => {
+  //   console.log();
+  //   this.setState({ showContactInfo: !this.state.showContactInfo });
+  // }
 
   render() {
     const { name,email,phone } = this.props.contact;
+    const { showContactInfo } = this.state;
 
     return (
     <div className="card card-body mb-3">
-      <h4>{name} <i onClick={this.onShowClick(this)} className="fas fa-sort-down"></i></h4>
-        <ul className="list-group">
+      <h4>{name} <i onClick={ () => this.setState({ showContactInfo: !this.state.showContactInfo })} className="fas fa-sort-down" style={{cursor: 'pointer'}}></i>
+      <i className="fas fa-times" style={{cursor: 'pointer', float: 'right', color: '#E55050'}} onClick={this.onDeleteClick}></i>
+      </h4>
+      {showContactInfo ? (<ul className="list-group">
           <li className="list-group-item">Email: {email}</li>
           <li className="list-group-item">Phone: {phone}</li>
-        </ul>
+        </ul>) : null }
       </div>
     );
   }
@@ -33,7 +43,8 @@ class Contact extends Component {
 // };
 
 Contact.propTypes = {
-  contact: PropTypes.object.isRequired
+  contact: PropTypes.object.isRequired,
+  deleteClickHandler: PropTypes.func.isRequired
 }
 
 export default Contact;
