@@ -3,33 +3,37 @@ import Contacts from './components/Contacts';
 import Contact from './components/Contact';
 import Header from './components/Header';
 
+import { Provider } from './context';
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 
 class App extends Component { // (class based component), every component made wille extend this one
   render() {
 
-    const name = 'Larry';
-    const showHello = true;
-    const showMath = true;
-    const num1 = 40;
-    const num2 = 23;
+    // const name = 'Larry';
+    // const showHello = true;
+    // const showMath = true;
+    // const num1 = 40;
+    // const num2 = 23;
 
 
-    let math;
-    if(showMath) {
-      math = <h4>{num1} +  {num2}= {num1 + num2}</h4>;
-    } else {
-      math = null;
-    }
+    // let math;
+    // if(showMath) {
+    //   math = <h4>{num1} +  {num2}= {num1 + num2}</h4>;
+    // } else {
+    //   math = null;
+    // }
 
     return (
+      <Provider>
       <div className="App">
         <Header branding="Contact Manager"/>
         <div className="container">
           <Contacts />
         </div>
       </div>
+      </Provider>
     );
   }
 }
