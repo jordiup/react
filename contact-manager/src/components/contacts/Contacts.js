@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Contact from './Contact'
 // import {  } from 'prop-types'
 
-import { Consumer } from '../context';
+import { Consumer } from '../../context';
 
 class Contacts extends Component {
 
@@ -12,8 +12,8 @@ class Contacts extends Component {
     - or with the state keyword
   */
 
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
     // this.state = {
     //   contacts: [
     //     {
@@ -36,7 +36,7 @@ class Contacts extends Component {
     //     },
     //   ]
     // }
-  }
+  // }
 
   // render () {
   //   const { name, email, phone } = this.props;
