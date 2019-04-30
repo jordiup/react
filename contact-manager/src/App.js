@@ -35,7 +35,8 @@ class App extends Component { // (class based component), every component made w
             <div className="container">
               <Switch>
                 <Route exact path="/" component={Contacts}/>
-                <Route exact path="/about" component={About}/>
+                <Route exact path="/about/" component={About}/>
+                {/* <Route exact path="/about/:id" component={About}/> */}
                 <Route exact path="/contact/add" component={AddContact}/>
               </Switch>
             </div>
