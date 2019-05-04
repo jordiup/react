@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Contacts from './components/contacts/Contacts';
 import AddContact from './components/contacts/AddContact';
+import EditContact from './components/contacts/EditContact';
 import Header from './components/layout/Header';
 import About from './components/pages/About';
 import NotFound from './components/pages/NotFound';
@@ -40,6 +41,7 @@ class App extends Component { // (class based component), every component made w
                 <Route exact path="/about/" component={About}/>
                 {/* <Route exact path="/about/:id" component={About}/> */}
                 <Route exact path="/contact/add" component={AddContact}/>
+                <Route exact path="/contact/edit/:id" component={EditContact}/>
                 <Route exact path="/test" component={Test}/>
                 <Route component={NotFound}></Route>
               </Switch>

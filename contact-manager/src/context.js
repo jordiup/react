@@ -22,25 +22,6 @@ const reducer = (state, action) => {
 };
 
 export class Provider extends Component {
-  // Deprecated users
-  // {
-  //   id: 1,
-  //   name: 'John Doe',
-  //   email: 'jd@postman.com',
-  //   phone: '555-444-333'
-  // },
-  // {
-  //   id: 2,
-  //   name: 'Kazza Williams',
-  //   email: 'kw@mail.com',
-  //   phone: '123-444-333'
-  // },
-  // {
-  //   id: 3,
-  //   name: 'Jimmy Benson',
-  //   email: 'jb@mail.com',
-  //   phone: '222-1111-333'
-  // },
 
     state = {
         contacts: [],
@@ -50,8 +31,11 @@ export class Provider extends Component {
           }
     }
     
-    componentDidMount(){
-      axios.get('https://jsonplaceholder.typicode.com/users').then(res => this.setState( {contacts: res.data}));
+    async componentDidMount(){
+      const res = await axios
+        .get('https://jsonplaceholder.typicode.com/users');
+
+        this.setState({contacts: res.data});
     }
 
     render() {

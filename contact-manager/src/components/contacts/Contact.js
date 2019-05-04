@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Consumer } from '../../context'
+import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 class Contact extends Component {
 
@@ -8,16 +10,14 @@ class Contact extends Component {
     showContactInfo: false
   };
 
-  onDeleteClick = (id,dispatch) => {
-    dispatch({type: 'DELETE_CONTACT',payload: id});
-    // this.props.deleteClickHandler();
+  onDeleteClick = async (id,dispatch) => {
+    try {
+      await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+    } catch(e){
+      dispatch({ type: 'DELETE_CONTACT',payload: id});
+    }
+    
   };
-
-  // Function that is called from the h4 button note that an arrow function must be used to maintain the state (now used as an arrow function)
-  // onShowClick = (e) => {
-  //   console.log();
-  //   this.setState({ showContactInfo: !this.state.showContactInfo });
-  // }
 
   render() {
     const { id,name,email,phone } = this.props.contact;
@@ -31,6 +31,9 @@ class Contact extends Component {
             <div className="card card-body mb-3">
             <h4>{name} <i onClick={ () => this.setState({ showContactInfo: !this.state.showContactInfo })} className="fas fa-sort-down" style={{cursor: 'pointer'}}></i>
             <i className="fas fa-times" style={{cursor: 'pointer', float: 'right', color: '#E55050'}} onClick={this.onDeleteClick.bind(this,id,dispatch)}></i>
+            <Link to={`contact/edit/${id}`}>
+              <i className="fas fa-pencil-alt mr-2"  style={{cursor: 'pointer', float: 'right', color: 'black'}}></i>
+            </Link>
             </h4>
             {showContactInfo ? (<ul className="list-group">
                 <li className="list-group-item">Email: {email}</li>
@@ -44,12 +47,6 @@ class Contact extends Component {
   }
 }
 
-// Deprecated in favor of object-based declaration
-// Contact.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   email: PropTypes.string.isRequired,
-//   phone: PropTypes.string.isRequired,
-// };
 
 Contact.propTypes = {
   contact: PropTypes.object.isRequired,
