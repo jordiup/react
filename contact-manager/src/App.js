@@ -8,7 +8,8 @@ import About from './components/pages/About';
 import NotFound from './components/pages/NotFound';
 import Test from './components/test/Test';
 
-import { Provider } from './context';
+import { Provider } from 'react-redux';
+import store from './store';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
@@ -16,23 +17,9 @@ import './App.css';
 class App extends Component { // (class based component), every component made wille extend this one
   render() {
 
-    // const name = 'Larry';
-    // const showHello = true;
-    // const showMath = true;
-    // const num1 = 40;
-    // const num2 = 23;
-
-
-    // let math;
-    // if(showMath) {
-    //   math = <h4>{num1} +  {num2}= {num1 + num2}</h4>;
-    // } else {
-    //   math = null;
-    // }
-
     return (
-      <Provider>
-        <Router>
+      <Provider store={store}>
+        <Router basename="contact-manager">
           <div className="App">
             <Header branding="Contact Manager"/>
             <div className="container">
@@ -54,18 +41,6 @@ class App extends Component { // (class based component), every component made w
 }
 
 export default App;
-
-// <Header branding="Contact Manager"/>
-// <div className="container">
-//   <Contact name="Big Boss" email="ceo@mail.com" phone="555-555-555"/>
-//   <Contact name="Mr. Burns" email="bossman@springfield.com" phone="555-666-555"/>
-// </div>
-
-// Below was used in initial tutorial...
-// <h1>The App Component</h1>
-// {showHello ? <h4>Hello {name.toUpperCase()}</h4> : null}
-// {math}
-// <label htmlFor="name">Name</label>
 
 
 /*
