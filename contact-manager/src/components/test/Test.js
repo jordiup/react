@@ -8,8 +8,7 @@ class Test extends Component {
     };
 
     componentDidMount(){
-        fetch
-        ('https://jsonplaceholder.typicode.com/posts/1')
+        fetch('https://jsonplaceholder.typicode.com/posts/1')
         .then(response => response.json())
         .then(data => this.setState({
             title: data.title,
