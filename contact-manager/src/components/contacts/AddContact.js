@@ -2,17 +2,21 @@ import React, { Component } from 'react';
 import  {Consumer} from '../../context';
 import TextInputGroup from '../layout/TextInputGroup';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { addContact } from '../../actions/contactActions';
+import uuid from 'uuid';
 
 class AddContact extends Component {
     state = {
+        id: uuid(),
         name: '',
         email: '',
         phone: '' ,
         errors: {}
     };
-
     
-    onSubmit = async (dispatch, e) => {
+    onSubmit = (e) => {
         e.preventDefault();
         const { name, email, phone } = this.state;
 
@@ -31,16 +35,17 @@ class AddContact extends Component {
         }
         
         const newContact = {
+            id: uuid(),
             name,
             email,
             phone
         };
+
+        this.props.addContact(newContact);
         
-        const res = await axios
+        const res = axios
             .post('https://jsonplaceholder.typicode.com/users', newContact);
-            
-        dispatch({ type: 'ADD_CONTACT', payload: res.data });
-                
+                            
         // Clear state
         this.setState({
             name: '',
@@ -60,12 +65,11 @@ class AddContact extends Component {
     return (
         <Consumer>
             {value => {
-                const { dispatch } = value;
                 return (
                     <div className="card mb-3">
                     <h1 className="card-header">Add Contact</h1>
                     <div className="card-body">
-                        <form action="" onSubmit={this.onSubmit.bind(this,dispatch)}>
+                        <form action="" onSubmit={this.onSubmit.bind(this)}>
                             <TextInputGroup
                                 label="Name"
                                 name="name"
@@ -104,4 +108,8 @@ class AddContact extends Component {
   }
 }
 
-export default AddContact;
+AddContact.propTypes = {
+    addContact: PropTypes.func.isRequired
+}
+
+export default connect(null,{ addContact })(AddContact);
