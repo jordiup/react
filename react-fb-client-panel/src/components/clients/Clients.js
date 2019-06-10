@@ -1,26 +1,32 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import { firestoreConnect } from 'react-redux-firebase'
+import { STATUS_CODES } from 'http';
 
 class Clients extends Component {
+    // THIS IS A STATIC CLIENTS USED FOR DEMOING
+    // {
+    //     id: '412341234',
+    //     firstName: 'Kevin',
+    //     lastName: 'Bacon',
+    //     email: 'kb@porky.com',
+    //     phone: '555-555-555',
+    //     balance: '30'
+    // },
+    // {
+    //     id: '1923809123234',
+    //     firstName: 'James',
+    //     lastName: 'Brick',
+    //     email: 'jb@legoblock.com',
+    //     phone: '444-255-555',
+    //     balance: '20'
+    // },
+
     render() {
-        const clients = [
-            {
-                id: '412341234',
-                firstName: 'Kevin',
-                lastName: 'Bacon',
-                email: 'kb@porky.com',
-                phone: '555-555-555',
-                balance: '30'
-            },
-            {
-                id: '1923809123234',
-                firstName: 'James',
-                lastName: 'Brick',
-                email: 'jb@legoblock.com',
-                phone: '444-255-555',
-                balance: '20'
-            },
-        ];
+        const { clients } = this.props;
 
         if(clients){
             return (
@@ -69,4 +75,14 @@ class Clients extends Component {
     }
 }
 
-export default Clients;
+Clients.propTypes = {
+    firestore: PropTypes.object.isRequired,
+    clients: PropTypes.array
+}
+
+export default compose(
+    firestoreConnect([{collection: 'clients'}]), 
+    connect((state,props) => ({
+        clients: state.firestore.ordered.clients
+    }))
+)(Clients);
