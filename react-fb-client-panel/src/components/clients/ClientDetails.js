@@ -14,6 +14,7 @@ class ClientDetails extends Component {
         balanceUpdateAmount: ''
     }
 
+    // Update balance event
     balanceSubmit = e => {
         e.preventDefault();
 
@@ -28,6 +29,15 @@ class ClientDetails extends Component {
 
         // Updates details in firestore 
         firestore.update({collection: 'clients', doc:  client.id}, clientUpdate);
+    }
+
+    // Delete client 
+    onDeleteClick = () => {
+        const { client, firestore, history} = this.props;
+
+        // Needs a .then() because it will return a promise
+        firestore.delete({collection: 'clients', doc: client.id})
+            .then(history.push('/'))
     }
 
     // What ever we type in will be set for that state
@@ -75,7 +85,7 @@ class ClientDetails extends Component {
                             <div className="btn-group float-right">
                                 <Link to={`/client/edit/${client.id}`} className="btn btn-dark">
                                  Edit</Link>
-                                 <button className="btn btn-danger">
+                                 <button className="btn btn-danger" onClick={this.onDeleteClick}>
                                   Delete</button>
                             </div>
                         </div>
