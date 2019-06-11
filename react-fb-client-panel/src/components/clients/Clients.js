@@ -4,27 +4,10 @@ import PropTypes from 'prop-types'
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase'
-import { STATUS_CODES } from 'http';
+// import { STATUS_CODES } from 'http';
 import Spinner from '../layout/Spinner';
 
 class Clients extends Component {
-    // THIS IS A STATIC CLIENTS USED FOR DEMOING
-    // {
-    //     id: '412341234',
-    //     firstName: 'Kevin',
-    //     lastName: 'Bacon',
-    //     email: 'kb@porky.com',
-    //     phone: '555-555-555',
-    //     balance: '30'
-    // },
-    // {
-    //     id: '1923809123234',
-    //     firstName: 'James',
-    //     lastName: 'Brick',
-    //     email: 'jb@legoblock.com',
-    //     phone: '444-255-555',
-    //     balance: '20'
-    // },
 
     state = {
         totalOwed: null
@@ -114,3 +97,23 @@ export default compose(
         clients: state.firestore.ordered.clients
     }))
 )(Clients);
+
+
+
+// THIS IS A STATIC CLIENT TEMPLATE WHICH CAN BE USED FOR DEMOING
+// {
+//     id: '412341234',
+//     firstName: 'Kevin',
+//     lastName: 'Bacon',
+//     email: 'kb@porky.com',
+//     phone: '555-555-555',
+//     balance: '30'
+// },
+// {
+//     id: '1923809123234',
+//     firstName: 'James',
+//     lastName: 'Brick',
+//     email: 'jb@legoblock.com',
+//     phone: '444-255-555',
+//     balance: '20'
+// },
