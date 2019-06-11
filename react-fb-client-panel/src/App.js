@@ -5,9 +5,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 
+// Imports for components
 import AppNavbar from './components/layout/AppNavbar';
 import Dashboard from './components/layout/Dashboard';
 import AddClient from './components/clients/AddClient';
+import ClientDetails from './components/clients/ClientDetails';
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/client/add" component={AddClient} />
+            <Route exact path="/client/:id" component={ClientDetails} />
           </Switch>
         </div>
 
