@@ -72,6 +72,7 @@ class ClientDetails extends Component {
         if(client){
             return (
                 <div>
+                    {/* <h1 className="pl-4 mt-5">{client.firstName}</h1> */}
 
                     <div className="row">
                         <div className="col-md-6">
@@ -79,7 +80,6 @@ class ClientDetails extends Component {
                                 <i className="fas fa-arrow-circle-left"></i>
                                 {' '}Back to dashboard
                             </Link>
-                            <h1>{client.firstName}</h1>
                         </div>
                         <div className="col-md-6">
                             <div className="btn-group float-right">
