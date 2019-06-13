@@ -38,7 +38,7 @@ class Settings extends Component {
     return (
 
       <div>
-        <div className="row">
+        <div className="row mb-2">
           <div className="col-md-6">
               <Link to="/" className="btn btn-link">
                 <i className="fas fa-arrow-circle-left mr-2"></i>
