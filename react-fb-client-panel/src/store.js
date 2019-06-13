@@ -32,6 +32,7 @@ const rrfConfig = {
 //   const settings = {timestampsInSnapshots: true}
 //   firestore.settings(settings);
 
+
   // Add reactReduxFirebase enhancer when making store creator
 const createStoreWithFirebase = compose(
     reactReduxFirebase(firebase, rrfConfig), // firebase instance as first argument
@@ -47,8 +48,22 @@ const rootReducer = combineReducers({
     settings: settingsReducer
   })
   
-  // Create initial state 
-  const initialState = {};
+
+// Check for settings in LS 
+if(localStorage.getItem('settings') == null){
+  // Default settings 
+  const defaultSettings = {
+    disableBalanceOnAdd: true,
+    disableBalanceOnEdit: false,
+    allowRegistration: false  
+  }
+
+  // Set to LS 
+  localStorage.setItem('settings', JSON.stringify(defaultSettings));
+}
+
+// Create initial state 
+const initialState = {settings: JSON.parse(localStorage.getItem('settings'))};
 
 //   Create store 
 const store = createStoreWithFirebase(rootReducer, initialState,compose(reactReduxFirebase(firebase),
