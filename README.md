@@ -28,6 +28,9 @@ Topics covered:
   - Uses Firebase/Firestore for authentication, and full CRUD database management
   - Deployed on Firebase
 
+## Additional React projects
+ ### [New tab web app ](https://new-tab-3ecd4.web.app/)
+
  
 <!-- ---  -->
 

@@ -1,0 +1,129 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+
+body {
+  /* font-family: 'Special Elite'; */
+  font-family: eczar;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; 
+  height: 100vh;
+  background-image: url(https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?cs=srgb&dl=background-calm-clouds-747964.jpg&fm=jpg);
+  background-color: transparent;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  text-shadow: 0 1px 5px rgba(0,0,0,.1), 0 1px 4rem rgba(0,0,0,.8);
+
+  user-select: none;
+}
+
+input::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+input::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
+}
+
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat; */
+
+
+time {
+  font-size: 8rem;
+  line-height: 8rem;
+  font-weight:bold;
+  padding: 1rem;
+  text-shadow: 0 10px 70px rgba(0,0,0,.5), 0 1px 8rem rgba(0,0,0,.7);
+}
+
+.focusDiv {
+  /* position: absolute; */
+  /* display: block; */
+  /* text-align: center; */
+  /* left: 0; */
+  /* top: 70.5%; */
+}
+
+.focus-prompt {
+  border-bottom: 2px solid #fff;
+  width: 100%;
+  padding-top: 4px;
+  display: block;
+  background: 0;
+  border: 0;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  font-weight: 500;
+  outline: 0;
+  text-align: center;
+  transition: border-color .2s ease;
+}
+
+
+
+h1 {
+  font-family: eczar;
+  /* font-size: 4rem; */
+  font-weight: bold;
+  margin-bottom: 3rem;
+  text-shadow: 0 10px 70px rgba(0,0,0,.5), 0 1px 80px rgba(0,0,0,.9);
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+/* 
+
+DISCARDED STYLING FROM CREATE-REACT-APP
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
