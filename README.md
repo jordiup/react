@@ -7,8 +7,6 @@ Topics covered:
  - Learn Redux From Scratch
  - Build & Deploy a Client Management App With React, Redux & Firebase/Firestore
  - Master ES6+ Features Like Arrow Functions, Spread & Async Await
- - Suitable For Both Beginners & Intermediate React Developers
-
 
  ## Showcased projects
   The following project have been build in correspondence with the tutorials, and are deployed live with Firebase. Feel free to check them out.
