@@ -26,6 +26,12 @@ const Header = ({ siteTitle }) => (
         >
           {siteTitle}
         </Link>
+        <sup style={{ 
+          fontSize: '.8rem',
+          marginTop: '1rem',
+          float: 'right', 
+          color: 'white',
+        }}>by <a style={{ color: 'white' }} href="https://github.com/jordiup">@jordiup</a></sup>
       </h1>
     </div>
   </header>
@@ -36,7 +42,7 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-  siteTitle: `JEFF`,
+  siteTitle: ``,
 }
 
 export default Header
