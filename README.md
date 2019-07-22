@@ -28,6 +28,12 @@ Topics covered:
 
 ## Additional React projects
  ### [New tab web app ](https://new-tab-3ecd4.web.app/)
+  ![](preview-imgs/new-tab.png)
+
+ ### [Gatsby markdown blog](https://gatsby-markdown-blog.firebaseapp.com/)
+  ![](preview-imgs/gatsby-md-blog.png)
+
+
 
  
 <!-- ---  -->
