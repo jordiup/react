@@ -1,12 +1,16 @@
 # React ⚛⚡ 
-The purpose of this repo is to document my progress of 'React Front To Back' - one of the highest rated Udemy course about the React JS framework, instructed by Traversy Media.
+The purpose of this repo is to document my progress of React. So far I have taken two Udemy courses:
+ - **'React Front To Back'**, one of the highest rated Udemy course about the React JS framework, instructed by Traversy Media.
+  
+  Topics covered:
+  - Master React Concepts - Components, State, Props, etc
+  - Learn & Use The Context API
+  - Learn Redux From Scratch
+  - Build & Deploy a Client Management App With React, Redux & Firebase/Firestore
+  - Master ES6+ Features Like Arrow Functions, Spread & Async Await
 
-Topics covered:
- - Master React Concepts - Components, State, Props, etc
- - Learn & Use The Context API
- - Learn Redux From Scratch
- - Build & Deploy a Client Management App With React, Redux & Firebase/Firestore
- - Master ES6+ Features Like Arrow Functions, Spread & Async Await
+ - **'Complete React Developer in 2019'**, a modernised course tackling large scale React development. (👷‍♂️🏗 WIP 🚧)
+
 
  ## Showcased projects
   The following project have been build in correspondence with the tutorials, and are deployed live with Firebase. Feel free to check them out.
