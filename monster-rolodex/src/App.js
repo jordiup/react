@@ -1,26 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { CardList } from './components/card-list/card-list.component';
 import './App.css';
+import { InfoPrintout } from './components/info-printout/info-printout.component';
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      monsters: [
-        {
-          name: 'Frankenstein',
-          id: '1'
-        },
-        {
-          name: 'Drakula',
-          id: '2'
-        },
-        {
-          name: 'Zombie',
-          id: '3'
-        }
-      ]
+      monsters: []
     };
   }
 
@@ -28,18 +16,22 @@ class App extends Component {
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => 
       response.json())
-    // .then(users => this.setState({ monsters: users }));
+    .then(users => this.setState({ monsters: users }));
   }
 
   render() {
     return (
       <div className="App">
-      <header className="App-header">
-      {
-        this.state.monsters.map(monster => <h1>{monster.name}</h1>)
-      }
+        
+        <InfoPrintout name='Jordi' age="21">This is a demonstration that 'children' are passed to the componenent along with jsx attributes of the class</InfoPrintout>
 
-      </header>
+        
+        <header className="App-header">
+        
+        <CardList monsters={this.state.monsters}> 
+        </CardList>
+
+        </header>
     </div>
     );
   }
