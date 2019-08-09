@@ -35,10 +35,10 @@ class App extends Component {
     return (
       <div className="App">
         
-        <InfoPrintout name='Jordi' age="21">This is a demonstration that 'children' are passed to the componenent along with jsx attributes of the class</InfoPrintout>
-
-        
         <header className="App-header">
+
+        <h1>Monsters Rolodex</h1>
+        
 
         <SearchBox 
           placeholder="search monsters"
@@ -48,6 +48,9 @@ class App extends Component {
         <CardList monsters={filteredMonsters}> </CardList>
 
         </header>
+
+        
+        <InfoPrintout name='Jordi' age="21">This is a demonstration that 'children' are passed to the componenent along with jsx attributes of the class</InfoPrintout>
     </div>
     );
   }
