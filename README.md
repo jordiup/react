@@ -31,11 +31,16 @@ The purpose of this repo is to document my progress of React. So far I have take
   - Deployed on Firebase
 
 ## Additional React projects
+ ### [Gatsby markdown blog](https://gatsby-markdown-blog.firebaseapp.com/)
+  ![](preview-imgs/gatsby-md-blog.png)
+
+ ### [Monster Rolodex](https://gatsby-markdown-blog.firebaseapp.com/)
+  ![](preview-imgs/monster-rolodex.png)
+
+
  ### [New tab web app ](https://new-tab-3ecd4.web.app/)
   ![](preview-imgs/new-tab.png)
 
- ### [Gatsby markdown blog](https://gatsby-markdown-blog.firebaseapp.com/)
-  ![](preview-imgs/gatsby-md-blog.png)
 
 
 
