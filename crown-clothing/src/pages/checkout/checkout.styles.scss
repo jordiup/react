@@ -28,4 +28,20 @@
     margin-left: auto;
     font-size: 36px;
   }
+
+  .test-warning{
+    color: salmon;
+    margin: 1rem auto;
+    text-align: right;
+  }
+
+  button.StripeCheckout{
+    width: 100%;
+    transition: ease all .5s;
+    margin-top: 2rem;
+
+    &:hover, &:active {
+      transform: scale(1.05);
+    }
+  }
 }
