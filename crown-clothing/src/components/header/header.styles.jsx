@@ -30,21 +30,9 @@ export const LogoContainer = styled.div`
 
 
 export const HeaderContainer = styled.div`
-.header {
   height: 70px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
-
-  .logo-container {
-  }
-
-  .options {
-
-    .option {
-    }
-  }
-}
-
 `
