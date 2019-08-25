@@ -1,7 +1,35 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const HeaderContainer = styled.div`
+export const OptionsContainer = styled.div`
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+`
+
+export const OptionContainerStyles = css`
+    padding: 10px 15px;
+    cursor: pointer;
+`
+    export const OptionLink = styled(Link)`
+        ${OptionContainerStyles}
+    `
+
+    export const OptionDiv = styled.div`
+        ${OptionContainerStyles}
+    `
+
+
+export const LogoContainer = styled.div`
+    height: 100%;
+    width: 70px;
+    padding: 25px;
+`
+
+
+export const HeaderContainer = styled.div`
 .header {
   height: 70px;
   width: 100%;
@@ -10,21 +38,11 @@ const HeaderContainer = styled.div`
   margin-bottom: 25px;
 
   .logo-container {
-    height: 100%;
-    width: 70px;
-    padding: 25px;
   }
 
   .options {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
 
     .option {
-      padding: 10px 15px;
-      cursor: pointer;
     }
   }
 }

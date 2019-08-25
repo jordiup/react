@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const HomePageContainer = styled.div`
+export const HomePageContainer = styled.div`
     .homepage {
     display: flex;
     flex-direction: column;
