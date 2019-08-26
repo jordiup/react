@@ -12,8 +12,8 @@ const invertedButtonStyles = css`
     border: none;
 
     &:hover {
-    background-color: black;
-    color: white;
+      background-color: black;
+      color: white;
     } 
 `
 
@@ -35,7 +35,7 @@ const getButtonStyles = props => {
     return props.inverted ? invertedButtonStyles : buttonStyles;
 }
 
-export const customButtonContainer = styled.button`
+export const CustomButtonContainer = styled.button`
   min-width: 165px;
   width: auto;
   height: 50px;
@@ -61,7 +61,7 @@ export const customButtonContainer = styled.button`
   }
 
   ${getButtonStyles}
-`
+`;
 
 
 
