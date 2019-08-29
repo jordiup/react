@@ -22,7 +22,7 @@ The purpose of this repo is to document my progress of React. So far I have take
  ## Showcased projects
   The following project have been build in correspondence with the tutorials, and are deployed live with Firebase. Feel free to check them out.
 
-  ### [Crown Clothing](https://react-ecommerce-proj.firebaseapp.com/)
+  ### [Crown Clothing (👷‍♂️🏗 WIP 🚧)](https://react-ecommerce-proj.firebaseapp.com/)
  ![](preview-imgs/crwn-clothing.png)
 
   ### [Contact Manager](https://react-contact-manager-39497.firebaseapp.com)
