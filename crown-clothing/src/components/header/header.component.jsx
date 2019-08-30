@@ -17,7 +17,7 @@ import { auth } from '../../firebase/firebase.utils';
 const Header = ({ currentUser, hidden }) => (
   <HeaderContainer>
     <LogoContainer to="/">
-      <Logo className="logo" />
+      <Logo className="logo"/>
     </LogoContainer>
     <OptionsContainer>
         <OptionLink to="/shop">Shop</OptionLink>
