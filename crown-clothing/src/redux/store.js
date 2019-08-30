@@ -6,10 +6,13 @@ import logger from 'redux-logger';
 
 import rootReducer from './root-reducer';
 
-const middlewares = [logger];
+import thunk from 'redux-thunk';
+
+const middlewares = [thunk, logger];
 
 export const store = createStore(rootReducer, applyMiddleware(...middlewares));
 
 export const persistor = persistStore(store);
 
 export default { store, persistor };
+
