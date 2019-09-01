@@ -2,14 +2,17 @@
 
 # dependencies
 /node_modules
+/client/node_modules
 /.pnp
 .pnp.js
 
 # testing
 /coverage
+/coverage
 
 # production
-/build
+/cleint/build
+/client/build
 
 # misc
 .DS_Store
@@ -23,3 +26,4 @@ yarn-debug.log*
 yarn-error.log*
 
 firebase.utils.js
+/client/.firebase/
