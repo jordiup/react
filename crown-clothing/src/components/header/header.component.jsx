@@ -13,8 +13,6 @@ import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from './
 
 // import './header.styles.scss';
 
-import { auth } from '../../firebase/firebase.utils';
-
 const Header = ({ currentUser, hidden, signOutStart }) => (
   <HeaderContainer>
     <LogoContainer to="/">
@@ -25,7 +23,7 @@ const Header = ({ currentUser, hidden, signOutStart }) => (
         <OptionLink to="/contact">Contact</OptionLink>
         {
           currentUser ?
-          <OptionLink as='div' onClick={signOutStart}>Sign out</OptionLink>
+          <OptionLink as='div' onClick={() => signOutStart() }>Sign out</OptionLink>
           :
           <OptionLink to='/signin'>Sign in</OptionLink>
         }
