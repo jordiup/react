@@ -5,10 +5,11 @@
 /client/node_modules
 /.pnp
 .pnp.js
+/client/.pnp
 
 # testing
-/coverage
-/coverage
+/client/coverage
+/client/coverage
 
 # production
 /cleint/build
@@ -22,10 +23,11 @@
 .env.test.local
 .env.production.local
 crown-clothing/.env
+crown-clothing/.firebase/
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 firebase.utils.js
-/client/.firebase/
+crown-clothing/client/.firebase/
