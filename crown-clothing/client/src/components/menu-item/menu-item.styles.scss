@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   border: 1px solid black;
-  margin: 0 7.5px 15px;
+  margin: 0 7.5px 15px; 
   overflow: hidden;
 
   &:hover {
@@ -32,6 +32,10 @@
   &.large {
     height: 380px;
     background-position: top;
+
+    @media screen and (max-width: 800px){
+      height: 200px;
+    }
   }
 
   .background-image {
@@ -67,4 +71,5 @@
       font-size: 16px;
     }
   }
+  
 }

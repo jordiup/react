@@ -12,7 +12,7 @@ import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUsersSession } from './redux/user/user.actions';
 
-import './App.css';
+// import './App.css';
 
 
 const App = ({ checkUsersSession, currentUser }) => {
@@ -24,7 +24,7 @@ const App = ({ checkUsersSession, currentUser }) => {
   
   return (
     <div>
-        <GlobalStyle/>
+          <GlobalStyle/>
           <Header/>
           <Switch>
             <Route exact path='/' component={ HomePage } />
@@ -34,7 +34,6 @@ const App = ({ checkUsersSession, currentUser }) => {
             />
             <Route exact path='/checkout' component={CheckoutPage} />
           </Switch>
-        {/* </GlobalStyle> */}
     </div>
   );
 }
