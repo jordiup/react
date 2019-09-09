@@ -1,5 +1,6 @@
 import React, { useEffect, lazy, Suspense }  from 'react';
-import Header from './components/header/header.component'
+import Header from './components/header/header.component';
+import Spinner from './components/spinner/spinner.component';
 
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { GlobalStyle } from './global.styles';
@@ -25,7 +26,7 @@ const App = ({ checkUsersSession, currentUser }) => {
           <GlobalStyle/>
           <Header/>
           <Switch>
-            <Suspense fallback={<div>...Loading</div>} >
+            <Suspense fallback={<Spinner/>} >
               <Route exact path='/' component={ HomePage } />
               <Route path='/shop' component={ShopPage} />
               <Route exact path='/signin' 
