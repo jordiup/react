@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
-const compression = require('compression')
+const compression = require('compression');
+const enforce = require('express-sslify');
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
@@ -20,10 +21,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //  Compression
 app.use(compression());
 
+// Ensure ssl is used 
+app.use(enforce.HTTPS({ trustProtoHeader: true}))
+
 // Cross Origin Request library
 app.use(cors());
 
 if (process.env.NODE_ENV == 'production'){
+    app.use(enforce.HTTPS({ trustProtoHeader: true })); 
     app.use(express.static(path.join(__dirname, 'client/build')))
     // Specifies route to be used
     // app.get specifies REST parameters to be used
@@ -38,6 +43,10 @@ app.listen(port, error => {
     // Otherwise log port!
     console.log('Serverrunning on port ' + port);
 })
+
+app.get('/service-worker.js', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'))
+}) 
 
 app.post('/payment', (req, res) => {
     const body = {
