@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path');
+const compression = require('compression')
 
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
@@ -15,6 +16,9 @@ const port = process.env.PORT || 5000;
 // Ensure body tags are processed as json
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+//  Compression
+app.use(compression());
 
 // Cross Origin Request library
 app.use(cors());
