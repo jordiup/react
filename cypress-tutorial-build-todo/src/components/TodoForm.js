@@ -1,14 +1,14 @@
 import React from 'react';
 
 export default props => (
-  <form>
+  <form onSubmit={props.handleNewToDoSubmit}>
     <input
       type="text"
       autoFocus
       className="new-todo"
-      onChange={props.handleNewTodoChange}
+      onChange={props.handleNewToDoChange}
       placeholder="What needs to be done?"
-      // value={props.currentTodo}
+      value={props.currentTodo}
     />
   </form>
 );
