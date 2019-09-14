@@ -14,12 +14,13 @@ export default class TodoApp extends Component {
 			todos: []
 		};
 
-		this.handleNewToDoChange = this.handleNewToDoChange.bind(this);
+		this.handleNewTodoChange = this.handleNewTodoChange.bind(this);
 		this.handleTodoSubmit = this.handleTodoSubmit.bind(this);
 	}
 
-	handleNewToDoChange(event) {
+	handleNewTodoChange(event) {
 		this.setState({ currentTodo: event.target.value });
+		console.log(event.target.value);
 	}
 
 	handleTodoSubmit(event) {
@@ -27,7 +28,8 @@ export default class TodoApp extends Component {
 		const newTodo = { name: this.state.currentTodo, isComplete: false };
 		saveTodo(newTodo).then(({ data }) =>
 			this.setState({
-				todos: this.state.todos.concat(data)
+				todos: this.state.todos.concat(data),
+				currentTodo: ''
 			})
 		);
 	}
@@ -40,7 +42,7 @@ export default class TodoApp extends Component {
 						<h1>todos</h1>
 						<TodoForm
 							currentTodo={this.state.currentTodo}
-							handleNewToDoChange={this.handleNewToDoChange}
+							handleNewTodoChange={this.handleNewTodoChange}
 							handleTodoSubmit={this.handleTodoSubmit}
 						/>
 					</header>
