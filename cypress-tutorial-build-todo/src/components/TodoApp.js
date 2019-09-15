@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 import Footer from './Footer';
-import { saveTodo } from '../lib/service';
+import { saveTodo, loadTodos } from '../lib/service';
+// import { spawn } from 'child_process';
 
 export default class TodoApp extends Component {
 	constructor(props) {
@@ -18,20 +19,26 @@ export default class TodoApp extends Component {
 		this.handleTodoSubmit = this.handleTodoSubmit.bind(this);
 	}
 
+	componentDidMount() {
+		loadTodos().then(({ data }) => this.setState({ todos: data }));
+	}
+
 	handleNewTodoChange(event) {
 		this.setState({ currentTodo: event.target.value });
-		console.log(event.target.value);
+		console.log('new todo: ', event.target.value);
 	}
 
 	handleTodoSubmit(event) {
 		event.preventDefault();
 		const newTodo = { name: this.state.currentTodo, isComplete: false };
-		saveTodo(newTodo).then(({ data }) =>
-			this.setState({
-				todos: this.state.todos.concat(data),
-				currentTodo: ''
-			})
-		);
+		saveTodo(newTodo)
+			.then(({ data }) =>
+				this.setState({
+					todos: this.state.todos.concat(data),
+					currentTodo: ''
+				})
+			)
+			.catch(() => this.setState({ error: true }));
 	}
 
 	render() {
@@ -40,6 +47,9 @@ export default class TodoApp extends Component {
 				<div>
 					<header className="header">
 						<h1>todos</h1>
+						{this.state.error ? (
+							<span className="error">Something went wrong</span>
+						) : null}
 						<TodoForm
 							currentTodo={this.state.currentTodo}
 							handleNewTodoChange={this.handleNewTodoChange}

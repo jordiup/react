@@ -23,7 +23,6 @@ describe('Input form', () => {
 		});
 
 		it('Adds a new todo on submit', () => {
-			cy.server();
 			cy.route('POST', '/api/todos', {
 				name: itemText,
 				id: 1,
@@ -37,8 +36,7 @@ describe('Input form', () => {
 				.and('contain', itemText);
 		});
 
-		it.only('Shows an error on failed submission', () => {
-			cy.server();
+		it('Shows an error on failed submission', () => {
 			cy.route({
 				url: '/api/todos',
 				method: 'POST',
