@@ -4,6 +4,7 @@ import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 import Footer from './Footer';
 import { saveTodo, loadTodos } from '../lib/service';
+import { timeInterval } from 'rxjs/operator/timeInterval';
 // import { spawn } from 'child_process';
 
 export default class TodoApp extends Component {
@@ -20,7 +21,9 @@ export default class TodoApp extends Component {
 	}
 
 	componentDidMount() {
-		loadTodos().then(({ data }) => this.setState({ todos: data }));
+		loadTodos()
+			.then(({ data }) => this.setState({ todos: data }))
+			.catch(() => this.setState({ error: true }));
 	}
 
 	handleNewTodoChange(event) {
@@ -42,6 +45,7 @@ export default class TodoApp extends Component {
 	}
 
 	render() {
+		const remaining = this.state.todos.filter(t => !t.isComplete).length;
 		return (
 			<Router>
 				<div>
@@ -59,7 +63,7 @@ export default class TodoApp extends Component {
 					<section className="main">
 						<TodoList todos={this.state.todos} />
 					</section>
-					<Footer />
+					<Footer remaining={remaining} />
 				</div>
 			</Router>
 		);
