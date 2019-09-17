@@ -15,7 +15,7 @@ describe('List items', () => {
 		cy.get('.todo-count').should('contain', 3);
 	});
 
-	it.only('Remove a todo', () => {
+	it('Remove a todo', () => {
 		cy.route({
 			url: '/app/todos/1',
 			method: 'DELETE',
@@ -23,10 +23,36 @@ describe('List items', () => {
 			response: {}
 		});
 
-		cy.get('.todo-list li')
+		cy.get('.todo-list li').as('list');
+
+		cy.get('@list')
 			.first()
 			.find('.destroy')
 			.invoke('show')
 			.click();
+	});
+
+	it('Marks an incomplete item complete', () => {
+		cy.fixture('todos').then(todos => {
+			const target = Cypress._.head(todos);
+			cy.route(
+				'PUT',
+				`/api/todos/${target.id}`,
+				Cypress._.mege(target, { isComplete: true })
+			);
+		});
+
+		cy.get('.todo-list li')
+			.first()
+			.as('first-todo');
+
+		cy.get('@first-todo')
+			.find('.toggle')
+			.click()
+			.should('be.checked');
+
+		cy.get('@first-todo').should('have.class', 'completed');
+
+		cy.get('.todo-count').should('countain', 2);
 	});
 });

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 import Footer from './Footer';
-import { saveTodo, loadTodos } from '../lib/service';
+import { saveTodo, loadTodos, destroyTodo } from '../lib/service';
 import { timeInterval } from 'rxjs/operator/timeInterval';
 // import { spawn } from 'child_process';
 
@@ -18,6 +18,7 @@ export default class TodoApp extends Component {
 
 		this.handleNewTodoChange = this.handleNewTodoChange.bind(this);
 		this.handleTodoSubmit = this.handleTodoSubmit.bind(this);
+		this.handleDelete = this.handleDelete.bind(this);
 	}
 
 	componentDidMount() {
@@ -29,6 +30,15 @@ export default class TodoApp extends Component {
 	handleNewTodoChange(event) {
 		this.setState({ currentTodo: event.target.value });
 		console.log('new todo: ', event.target.value);
+	}
+
+	handleDelete (id) {
+		destroyTodo(id)
+		.then(() => this.setState({
+			todos: this.setState({
+				todos: this.state.todos.filter(t => t.id !== id)
+			})
+		}))
 	}
 
 	handleTodoSubmit(event) {
@@ -61,7 +71,7 @@ export default class TodoApp extends Component {
 						/>
 					</header>
 					<section className="main">
-						<TodoList todos={this.state.todos} />
+						<TodoList todos={this.state.todos} handleDelete={this.handleDelete} />
 					</section>
 					<Footer remaining={remaining} />
 				</div>
