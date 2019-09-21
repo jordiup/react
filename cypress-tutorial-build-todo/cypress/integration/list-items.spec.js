@@ -38,7 +38,7 @@ describe('List items', () => {
 			cy.route(
 				'PUT',
 				`/api/todos/${target.id}`,
-				Cypress._.mege(target, { isComplete: true })
+				Cypress._.merge(target, { isComplete: true })
 			);
 		});
 
@@ -53,6 +53,6 @@ describe('List items', () => {
 
 		cy.get('@first-todo').should('have.class', 'completed');
 
-		cy.get('.todo-count').should('countain', 2);
+		cy.get('.todo-count').should('contain', 2);
 	});
 });
