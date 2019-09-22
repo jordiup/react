@@ -4,9 +4,7 @@ import TodoForm from './TodoForm';
 import TodoList from './TodoList';
 import Footer from './Footer';
 import { saveTodo, loadTodos, destroyTodo, updateTodo } from '../lib/service';
-import { timeInterval } from 'rxjs/operator/timeInterval';
-import {filterTodos} from '../lib/utils';
-// import { spawn } from 'child_process';
+import { filterTodos } from '../lib/utils';
 
 export default class TodoApp extends Component {
 	constructor(props) {
@@ -31,15 +29,13 @@ export default class TodoApp extends Component {
 
 	handleNewTodoChange(event) {
 		this.setState({ currentTodo: event.target.value });
-		console.log('new todo: ', event.target.value);
+		// console.log('new todo: ', event.target.value);
 	}
 
 	handleDelete(id) {
 		destroyTodo(id).then(() =>
 			this.setState({
-				todos: this.setState({
-					todos: this.state.todos.filter(t => t.id !== id)
-				})
+				todos: this.state.todos.filter(t => t.id !== id)
 			})
 		);
 	}

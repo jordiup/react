@@ -15,7 +15,7 @@ const TodoItem = props => (
 				onClick={() => props.handleDelete(props.id)}
 			/>
 		</div>
-	</li>
+	</li> 
 );
 
 export default props => (
