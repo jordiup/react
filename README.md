@@ -44,7 +44,7 @@ The purpose of this repo is to document my progress of React. So far I have take
  ### [Gatsby markdown blog](https://gatsby-markdown-blog.firebaseapp.com/)
   ![](preview-imgs/gatsby-md-blog.png)
 
- ### [Monster Rolodex](https://gatsby-markdown-blog.firebaseapp.com/)
+ ### [Monster Rolodex](https://monsters-rolodex.firebaseapp.com/)
   ![](preview-imgs/monster-rolodex.png)
 
 
